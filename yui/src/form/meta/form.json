@@ -1,0 +1,5 @@
+{
+  "moodle-availability_ipaymu-form": {
+    "requires": ["base", "node", "event", "moodle-core_availability-form"]
+  }
+}

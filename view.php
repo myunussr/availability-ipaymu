@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package   availability_ipaymu
+ * @copyright 2024 Muhammad Yunus <myunusrukmana@gmail.com>
+ */
+
 require_once('../../../config.php');
 require_once($CFG->dirroot . '/availability/condition/ipaymu/lib.php');
 
@@ -89,7 +94,7 @@ if ($paymentrx && ($paymentrx->payment_status == 'Pending')) {
 ?>
         <p><?php print_string("paymentrequired", 'availability_ipaymu') ?></p>
         <p><b><?php echo get_string("cost") . ": {$ipaymu->currency} {$localisedcost}"; ?></b></p>
-        <p><img alt="<?php print_string('ipaymuaccepted', 'availability_ipaymu') ?>" title="<?php print_string('ipaymuaccepted', 'availability_ipaymu') ?>" src="https://www.ipaymu.com/en_US/i/logo/ipaymu_mark_60x38.gif" /></p>
+        <p><img alt="<?php print_string('ipaymuaccepted', 'availability_ipaymu') ?>" title="<?php print_string('ipaymuaccepted', 'availability_ipaymu') ?>" src="./pix/ipaymu_icon.png" width="64px" height="64px" /></p>
         <p><?php print_string("paymentinstant", 'availability_ipaymu') ?></p>
         <?php
         if (empty($CFG->useipaymusandbox)) {
@@ -114,9 +119,7 @@ if ($paymentrx && ($paymentrx->payment_status == 'Pending')) {
 
             <input type="hidden" name="cmd" value="_xclick" />
             <input type="hidden" name="charset" value="utf-8" />
-            <input type="hidden" name="business" value="<?php p($ipaymu->businessemail) ?>" />
             <input type="hidden" name="item_name" value="<?php p($ipaymu->itemname) ?>" />
-            <input type="hidden" name="item_number" value="<?php p($ipaymu->itemnumber) ?>" />
             <input type="hidden" name="quantity" value="1" />
             <input type="hidden" name="on0" value="<?php print_string("user") ?>" />
             <input type="hidden" name="os0" value="<?php p($userfullname) ?>" />

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package   availability_ipaymu
+ * @copyright 2024 Muhammad Yunus <myunusrukmana@gmail.com>
+ */
+
 require(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir . '/tablelib.php');
 

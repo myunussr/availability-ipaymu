@@ -40,13 +40,6 @@ YUI.add(
       }
 
       var html = '<div class="container-fluid">';
-      html += '<div class="row">';
-      html += '<div class="col"><label for="ipaymubusinessemail">';
-      html += M.util.get_string("businessemail", "availability_ipaymu");
-      html +=
-        "</label></div>" +
-        '<div class="col"><input class="form-control" name="businessemail" type="email" id="ipaymubusinessemail" />' +
-        "</div></div>";
 
       html += '<div class="row mt-3">';
       html += '<div class="col"><label for="ipaymucurrency">';
@@ -68,28 +61,17 @@ YUI.add(
       html +=
         '</label></div><div class="col"><input class="form-control" name="itemname" type="text" /></div></div>';
 
-      html += '<div class="row mt-3">';
-      html += '<div class="col"><label for="ipaymuitemnumber">';
-      html += M.util.get_string("itemnumber", "availability_ipaymu");
-      html +=
-        '</label></div><div class="col"><input class="form-control" name="itemnumber" type="text" /></div></div>';
       html += "</div>";
 
       var node = Y.Node.create("<span>" + html + "</span>");
 
       // Set initial values based on the value from the JSON data in Moodle
       // database. This will have values undefined if creating a new one.
-      if (json.businessemail) {
-        node.one("input[name=businessemail]").set("value", json.businessemail);
-      }
       if (json.cost) {
         node.one("input[name=cost]").set("value", json.cost);
       }
       if (json.itemname) {
         node.one("input[name=itemname]").set("value", json.itemname);
-      }
-      if (json.itemnumber) {
-        node.one("input[name=itemnumber]").set("value", json.itemnumber);
       }
 
       // Add event handlers (first time only).
@@ -126,15 +108,12 @@ YUI.add(
       // to use within the JSON data in the form. Should be compatible
       // with the structure used in the __construct and save functions
       // within condition.php.
-      value.businessemail = node.one("input[name=businessemail]").get("value");
 
       value.currency = node.one("select[name=currency]").get("value");
 
       value.cost = this.getValue("cost", node);
 
       value.itemname = node.one("input[name=itemname]").get("value");
-
-      value.itemnumber = node.one("input[name=itemnumber]").get("value");
     };
 
     /**
@@ -162,9 +141,6 @@ YUI.add(
       var value = {};
       this.fillValue(value, node);
 
-      if (value.businessemail === "") {
-        errors.push("availability_ipaymu:error_businessemail");
-      }
       if (
         (value.cost !== undefined && typeof value.cost === "string") ||
         value.cost <= 0
@@ -173,9 +149,6 @@ YUI.add(
       }
       if (value.itemname === "") {
         errors.push("availability_ipaymu:error_itemname");
-      }
-      if (value.itemnumber === "") {
-        errors.push("availability_ipaymu:error_itemnumber");
       }
     };
   },

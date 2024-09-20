@@ -36,7 +36,6 @@ Feature: availability_ipaymu
     And I expand all fieldsets
     And I click on "Add restriction..." "button"
     And I click on "ipaymu" "button" in the "Add restriction..." "dialogue"
-    And I set the field "businessemail" to "test@example.com"
     And I set the field "cost" to "123"
     And I press "Save and return to course"
 
@@ -49,4 +48,4 @@ Feature: availability_ipaymu
     # Page 1 should appear with availability info.
     Then I should see "Page 1" in the "#section-1 .dimmed_text" "css_element"
     And I should see "you make a" in the "Topic 1" "section"
-    And I should see "payment with ipaymu" in the "Topic 1" "section"
+    And I should see "payment with iPaymu" in the "Topic 1" "section"

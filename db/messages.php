@@ -1,9 +1,13 @@
 <?php
 
+/**
+ * @package   availability_ipaymu
+ * @copyright 2024 Muhammad Yunus <myunusrukmana@gmail.com>
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
 $messageproviders = [
-    // Notification for users that their payment is pending.
     'payment_pending' => [
         'defaults' => [
             'airnotifier' => MESSAGE_PERMITTED + MESSAGE_DEFAULT_LOGGEDIN + MESSAGE_DEFAULT_LOGGEDOFF,
@@ -12,7 +16,6 @@ $messageproviders = [
         ],
     ],
 
-    // Notifications about problems with payments.
     'payment_error' => [
         'capability' => 'availability/ipaymu:receivenotifications',
         'defaults' => [

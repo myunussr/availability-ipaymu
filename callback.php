@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package   availability_ipaymu
+ * @copyright 2024 Muhammad Yunus <myunusrukmana@gmail.com>
+ */
+
 use enrol_ipaymu\ipaymu_mathematical_constants;
 use enrol_ipaymu\ipaymu_status_codes;
 use enrol_ipaymu\ipaymu_helper;

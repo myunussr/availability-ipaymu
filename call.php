@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package   availability_ipaymu
+ * @copyright 2024 Muhammad Yunus <myunusrukmana@gmail.com>
+ */
+
 use enrol_ipaymu\ipaymu_status_codes;
 use enrol_ipaymu\ipaymu_mathematical_constants;
 use enrol_ipaymu\ipaymu_helper;
@@ -37,7 +42,6 @@ $params = [
 ];
 
 $sql = 'SELECT * FROM {availability_ipaymu_trx} WHERE userid = :userid AND contextid = :contextid AND sectionid = :sectionid ORDER BY {availability_ipaymu_trx}.timestamp DESC';
-// $context = context_course::instance(33, MUST_EXIST);
 
 $existingdata = $DB->get_record_sql($sql, $params, 1); // Will return exactly 1 row. The newest transaction that was saved.
 

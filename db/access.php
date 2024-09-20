@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package   availability_ipaymu
+ * @copyright 2024 Muhammad Yunus <myunusrukmana@gmail.com>
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
 $capabilities = [

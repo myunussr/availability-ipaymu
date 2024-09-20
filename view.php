@@ -62,7 +62,6 @@ if ($paymentrx && ($paymentrx->payment_status == 'Pending')) {
     echo get_string('paymentpending', 'availability_ipaymu');
     echo $OUTPUT->continue_button($context->get_url(), 'get');
 } else if ($paymentid !== null && $paymentid === ($SESSION->availability_ipaymu->paymentid ?? null)) {
-    // The users returned from ipaymu before the IPN was processed.
     echo get_string('paymentpending', 'availability_ipaymu');
     echo $OUTPUT->continue_button($context->get_url(), 'get');
 } else {
@@ -97,11 +96,6 @@ if ($paymentrx && ($paymentrx->payment_status == 'Pending')) {
         <p><img alt="<?php print_string('ipaymuaccepted', 'availability_ipaymu') ?>" title="<?php print_string('ipaymuaccepted', 'availability_ipaymu') ?>" src="./pix/ipaymu_icon.png" width="64px" height="64px" /></p>
         <p><?php print_string("paymentinstant", 'availability_ipaymu') ?></p>
         <?php
-        if (empty($CFG->useipaymusandbox)) {
-            $ipaymuurl = 'https://www.ipaymu.com/cgi-bin/webscr';
-        } else {
-            $ipaymuurl = 'https://www.sandbox.ipaymu.com/cgi-bin/webscr';
-        }
 
         // Add a helper parameter for us to see that we just returned from ipaymu.
         $SESSION->availability_ipaymu = $SESSION->availability_ipaymu ?? (object) [];

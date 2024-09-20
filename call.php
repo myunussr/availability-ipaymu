@@ -67,7 +67,9 @@ $name = $USER->firstname . ' ' . $USER->lastname;
 $email = $USER->email;
 $phone = $phonenumber;
 
-$returnurl = "$CFG->wwwroot/course/view.php?id=$courseid";
+$section = $DB->get_record("course_sections", ["id" => $data->sectionid], "course", MUST_EXIST);
+$course = $DB->get_record("course", ["id" => $section->course], "*", MUST_EXIST);
+$returnurl = "$CFG->wwwroot/course/view.php?id=$course->id";
 
 function createLink($product, $qty, $price, $name, $phone, $email, $returnurl, $callbackurl)
 {
